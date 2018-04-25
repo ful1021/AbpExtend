@@ -23,7 +23,7 @@ namespace Abp.WebApi.Swagger
         public static void SwaggerApi(this IAbpStartupConfiguration configuration, Dictionary<Type, string> applicationModuleList, bool isGroupBy = true)
         {
             configuration.DynamicApi(applicationModuleList);
-            configuration.ConfigureSwaggerUi(applicationModuleList, isGroupBy);
+            configuration.ConfigureSwaggerUi(applicationModuleList.Keys, isGroupBy);
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace Abp.WebApi.Swagger
         /// </summary>
         /// <param name="configuration"></param>
         /// <param name="applicationModuleList"></param>
-        private static void DynamicApi(this IAbpStartupConfiguration configuration, Dictionary<Type, string> applicationModuleList)
+        public static void DynamicApi(this IAbpStartupConfiguration configuration, Dictionary<Type, string> applicationModuleList)
         {
             foreach (var item in applicationModuleList)
             {
@@ -49,7 +49,7 @@ namespace Abp.WebApi.Swagger
         /// <summary>
         /// 配置SwaggerUi 
         /// </summary>
-        private static void ConfigureSwaggerUi(this IAbpStartupConfiguration configuration, Dictionary<Type, string> applicationModuleList, bool isGroupBy = false)
+        public static void ConfigureSwaggerUi(this IAbpStartupConfiguration configuration, ICollection<Type> keys, bool isGroupBy = false)
         {
             configuration.Modules.AbpWebApi().HttpConfiguration
                 .EnableSwagger(c =>
@@ -65,7 +65,7 @@ namespace Abp.WebApi.Swagger
                     c.UseFullTypeNameInSchemaIds();
                     c.OperationFilter<AddAuthorizationHeaderParameterOperationFilter>();
 
-                    foreach (Type item in applicationModuleList.Keys)
+                    foreach (Type item in keys)
                     {
                         var xml = GetXmlCommentsPath(item);
                         if (File.Exists(xml))
