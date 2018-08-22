@@ -1,0 +1,20 @@
+<Project>
+  <PropertyGroup>
+    <Version>0.0.1</Version>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <PackageIconUrl>http://api.jk724.com/favicon.ico</PackageIconUrl>
+    <PackageProjectUrl>http://www.aspnetboilerplate.com/</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/aspnetboilerplate/aspnetboilerplate/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/aspnetboilerplate/aspnetboilerplate</RepositoryUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release' ">
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.1" PrivateAssets="All" />
+  </ItemGroup>
+
+</Project>
