@@ -5,7 +5,8 @@ $srcPath = Join-Path $slnPath "src"
 
 # List of projects
 $projects = (
-    "AbpExtend"
+    "AbpExtend",
+	"AbpExtend.EntityFrameworkCore"
 )
 
 # Rebuild solution
