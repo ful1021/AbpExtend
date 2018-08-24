@@ -20,11 +20,10 @@ namespace Abp.Web.Api.Controllers
         }
 
         [HttpGet]
-        public string GetAll(ApiProxyGenerationModel model)
+        public ContentResult GetAll(ApiProxyGenerationModel model)
         {
             var script = _proxyScriptManager.GetScript(model.CreateOptions());
-            //return Content(script, "application/x-javascript");
-            return script;
+            return Content(script, "application/x-javascript");
         }
     }
 }
