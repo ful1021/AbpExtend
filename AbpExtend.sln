@@ -5,7 +5,19 @@ VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbpExtend", "src\AbpExtend\AbpExtend.csproj", "{B2FF63AE-D917-4402-8FCA-D3C99D446797}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbpExtend.EntityFrameworkCore", "src\AbpExtend.EntityFrameworkCore\AbpExtend.EntityFrameworkCore.csproj", "{B06702ED-64BA-4470-B620-E351D5653603}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbpExtend.EntityFrameworkCore", "src\AbpExtend.EntityFrameworkCore\AbpExtend.EntityFrameworkCore.csproj", "{B06702ED-64BA-4470-B620-E351D5653603}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbpExtend.Web.Common", "src\AbpExtend.Web.Common\AbpExtend.Web.Common.csproj", "{FFDA8F5B-8E6D-4C99-B310-94D374F4FDD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbpExtend.AspNetCore", "src\AbpExtend.AspNetCore\AbpExtend.AspNetCore.csproj", "{9B12E3BB-38D6-451D-AF6D-D8D75BA524D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution-items", "solution-items", "{CC8DA3F9-1D70-4987-A1B7-F4EFC524C2F1}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		common.props = common.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{51913F82-19B5-4550-B9AF-344F7EBD6F46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +33,23 @@ Global
 		{B06702ED-64BA-4470-B620-E351D5653603}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B06702ED-64BA-4470-B620-E351D5653603}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B06702ED-64BA-4470-B620-E351D5653603}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFDA8F5B-8E6D-4C99-B310-94D374F4FDD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFDA8F5B-8E6D-4C99-B310-94D374F4FDD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFDA8F5B-8E6D-4C99-B310-94D374F4FDD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFDA8F5B-8E6D-4C99-B310-94D374F4FDD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B12E3BB-38D6-451D-AF6D-D8D75BA524D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B12E3BB-38D6-451D-AF6D-D8D75BA524D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B12E3BB-38D6-451D-AF6D-D8D75BA524D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B12E3BB-38D6-451D-AF6D-D8D75BA524D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B2FF63AE-D917-4402-8FCA-D3C99D446797} = {51913F82-19B5-4550-B9AF-344F7EBD6F46}
+		{B06702ED-64BA-4470-B620-E351D5653603} = {51913F82-19B5-4550-B9AF-344F7EBD6F46}
+		{FFDA8F5B-8E6D-4C99-B310-94D374F4FDD9} = {51913F82-19B5-4550-B9AF-344F7EBD6F46}
+		{9B12E3BB-38D6-451D-AF6D-D8D75BA524D6} = {51913F82-19B5-4550-B9AF-344F7EBD6F46}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7E236B4F-B680-4310-BDEF-4FD55BD9DC11}
