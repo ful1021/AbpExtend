@@ -20,7 +20,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Abp.AspNetCore" Version="3.8.1" />
+    <PackageReference Include="Abp.AspNetCore" Version="3.7.2" />
   </ItemGroup>
 
   <ItemGroup>
