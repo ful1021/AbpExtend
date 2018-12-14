@@ -5,6 +5,8 @@ $srcPath = Join-Path $slnPath "src"
 
 # List of projects
 $projects = (
+	"Abp.AspNetZeroCore.Fix",
+	"Abp.AspNetZeroCore.Web.Fix",
     "AbpExtend",
 	"AbpExtend.AspNetCore",
 	"AbpExtend.EntityFrameworkCore",
