@@ -5,6 +5,7 @@
 // Assembly location: C:\Users\fuliang\.nuget\packages\abp.aspnetzerocore\1.2.2\lib\netcoreapp2.2\Abp.AspNetZeroCore.dll
 
 using Abp.Modules;
+using Abp.Reflection.Extensions;
 
 namespace Abp.AspNetZeroCore
 {
