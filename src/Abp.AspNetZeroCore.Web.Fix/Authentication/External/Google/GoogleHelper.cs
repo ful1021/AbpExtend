@@ -22,35 +22,35 @@ namespace Abp.AspNetZeroCore.Web.Authentication.External.Google
         {
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
-            return (string)((JToken)user).Value<string>((object)"displayName");
+            return (string)((JToken)user).Value<string>((object)"name");
         }
 
         public static string GetGivenName(JObject user)
         {
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
-            return GoogleHelper.TryGetValue(user, "name", "givenName");
+            return (string)((JToken)user).Value<string>((object)"given_name");
         }
 
         public static string GetFamilyName(JObject user)
         {
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
-            return GoogleHelper.TryGetValue(user, "name", "familyName");
+            return (string)((JToken)user).Value<string>((object)"family_name");
         }
 
         public static string GetProfile(JObject user)
         {
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
-            return (string)((JToken)user).Value<string>((object)"url");
+            return (string)((JToken)user).Value<string>((object)"link");
         }
 
         public static string GetEmail(JObject user)
         {
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
-            return GoogleHelper.TryGetFirstValue(user, "emails", "value");
+            return (string)((JToken)user).Value<string>((object)"email");
         }
 
         private static string TryGetValue(JObject user, string propertyName, string subProperty)
