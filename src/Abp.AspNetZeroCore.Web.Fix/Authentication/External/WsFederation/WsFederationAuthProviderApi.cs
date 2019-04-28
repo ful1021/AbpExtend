@@ -25,32 +25,24 @@ namespace Abp.AspNetZeroCore.Web.Authentication.External.WsFederation
           string token)
         {
             WsFederationAuthProviderApi federationAuthProviderApi = this;
+            if (federationAuthProviderApi == null || federationAuthProviderApi.ProviderInfo == null)
+                return null;
             // ISSUE: explicit non-virtual call
-            string additionalParam1 = federationAuthProviderApi != null && federationAuthProviderApi.ProviderInfo != null ? (federationAuthProviderApi.ProviderInfo).AdditionalParams["Authority"] : string.Empty;
+            string additionalParam1 = (federationAuthProviderApi.ProviderInfo).AdditionalParams["Authority"];
             if (string.IsNullOrEmpty(additionalParam1))
                 throw new ApplicationException("Authentication:WsFederation:Issuer configuration is required.");
             // ISSUE: explicit non-virtual call
-
-            string additionalParam2 = federationAuthProviderApi != null && federationAuthProviderApi.ProviderInfo != null ? (federationAuthProviderApi.ProviderInfo).AdditionalParams["MetaDataAddress"] : string.Empty;
+            string additionalParam2 = (federationAuthProviderApi.ProviderInfo).AdditionalParams["MetaDataAddress"];
             if (string.IsNullOrEmpty(additionalParam1))
                 throw new ApplicationException("Authentication:WsFederation:MetaDataAddress configuration is required.");
-
             WsFederationConfigurationRetriever configurationRetriever = new WsFederationConfigurationRetriever();
             HttpDocumentRetriever documentRetriever = new HttpDocumentRetriever();
             ConfigurationManager<WsFederationConfiguration> configurationManager = new ConfigurationManager<WsFederationConfiguration>(additionalParam2, (IConfigurationRetriever<WsFederationConfiguration>)configurationRetriever, (IDocumentRetriever)documentRetriever);
             JwtSecurityToken jwtSecurityToken = await federationAuthProviderApi.ValidateToken(token, additionalParam1, (IConfigurationManager<WsFederationConfiguration>)configurationManager, new CancellationToken());
             string str1 = jwtSecurityToken.Claims.First<Claim>((Func<Claim, bool>)(c => c.Type == "name")).Value;
             string str2 = jwtSecurityToken.Claims.First<Claim>((Func<Claim, bool>)(c => c.Type == "email")).Value;
-            int num1 = 32;
-            string[] strArray = str1.Split(' ', (char)num1);
-            return new ExternalAuthUserInfo()
-            {
-                Provider = "WsFederation",
-                ProviderKey = jwtSecurityToken.Subject,
-                Name = strArray[0],
-                Surname = strArray.Length > 1 ? strArray[1] : strArray[0],
-                EmailAddress = str2
-            };
+            string[] strArray = str1.Split(' ');
+            return new ExternalAuthUserInfo() { Provider = "WsFederation", ProviderKey = jwtSecurityToken.Subject, Name = strArray[0], Surname = strArray.Length > 1 ? strArray[1] : strArray[0], EmailAddress = str2 };
         }
 
         private async Task<JwtSecurityToken> ValidateToken(

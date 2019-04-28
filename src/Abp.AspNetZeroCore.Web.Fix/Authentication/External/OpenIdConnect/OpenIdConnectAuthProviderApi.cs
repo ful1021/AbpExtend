@@ -26,9 +26,8 @@ namespace Abp.AspNetZeroCore.Web.Authentication.External.OpenIdConnect
         {
             OpenIdConnectAuthProviderApi connectAuthProviderApi = this;
             if (connectAuthProviderApi == null || connectAuthProviderApi.ProviderInfo == null)
-            {
                 return null;
-            }
+
             // ISSUE: explicit non-virtual call
             string additionalParam = (connectAuthProviderApi.ProviderInfo).AdditionalParams["Authority"];
             if (string.IsNullOrEmpty(additionalParam))
@@ -49,9 +48,8 @@ namespace Abp.AspNetZeroCore.Web.Authentication.External.OpenIdConnect
         {
             OpenIdConnectAuthProviderApi connectAuthProviderApi = this;
             if (connectAuthProviderApi == null || connectAuthProviderApi.ProviderInfo == null)
-            {
                 return null;
-            }
+
             if (string.IsNullOrEmpty(token))
                 throw new ArgumentNullException(nameof(token));
             if (string.IsNullOrEmpty(issuer))

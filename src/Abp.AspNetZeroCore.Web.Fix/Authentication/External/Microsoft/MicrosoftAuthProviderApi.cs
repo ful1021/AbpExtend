@@ -27,12 +27,7 @@ namespace Abp.AspNetZeroCore.Web.Authentication.External.Microsoft
         client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
         client.Timeout = TimeSpan.FromSeconds(30.0);
         client.MaxResponseContentBufferSize = 10485760L;
-        HttpResponseMessage httpResponseMessage = await client.SendAsync(new HttpRequestMessage(HttpMethod.Get, (string) MicrosoftAccountDefaults.UserInformationEndpoint)
-        {
-          Headers = {
-            Authorization = new AuthenticationHeaderValue("Bearer", accessCode)
-          }
-        });
+        HttpResponseMessage httpResponseMessage = await client.SendAsync(new HttpRequestMessage(HttpMethod.Get, (string) MicrosoftAccountDefaults.UserInformationEndpoint) { Headers = { Authorization = new AuthenticationHeaderValue("Bearer", accessCode) } });
         httpResponseMessage.EnsureSuccessStatusCode();
         JObject user = JObject.Parse(await httpResponseMessage.Content.ReadAsStringAsync());
         externalAuthUserInfo = new ExternalAuthUserInfo()
