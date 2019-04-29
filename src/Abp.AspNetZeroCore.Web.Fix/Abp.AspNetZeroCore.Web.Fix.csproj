@@ -28,8 +28,4 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.WsFederation" Version="2.2.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Abp.AspNetZeroCore.Fix\Abp.AspNetZeroCore.Fix.csproj" />
-  </ItemGroup>
-
 </Project>
