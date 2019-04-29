@@ -1,3 +1,3 @@
-dotnet nuget push *.nupkg -source http://localhost:1111/nuget JK724@P@ssw0rd
+dotnet nuget push *.nupkg -s http://nuget.xxx.com/nuget -k JK724@P@ssw0rd
 
 pause
